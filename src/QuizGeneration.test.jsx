@@ -8,6 +8,11 @@ describe('QuizGeneration Component', () => {
     //the quiz is remdered and extracted from the componets are text or labels
     const { getByText, getByLabelText } = render(<QuizGeneration />);
 
+
+    //The /i is a  regular expression to check  regardless of whether text is in 
+    //uppercase, lowercase, or any combination
+
+
     // Check if the quiz options are rendered
     expect(getByText(/Quiz Generation Options/i)).toBeTruthy();
 
@@ -54,6 +59,9 @@ describe('QuizGeneration Component', () => {
         { question: 'Sample question?' }
       ]
     };
+
+    //global.fetch allows you to make HTTP requests to interact with web servers, 
+    //returning a promise that resolves responses of the request
 
     // simulates a successful API call that returns quiz questions
     global.fetch = jest.fn(() =>

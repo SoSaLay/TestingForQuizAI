@@ -14,10 +14,14 @@ describe('Navbar Component', () => {
       </MemoryRouter>
     );
 
+    //</MemoryRouter> keeps the history of your "in-memory" navigation
+
     // Click on the Account link
     fireEvent.click(getByText(/Account/i));
 
-    // Check if the Account Page is displayed by checking the text content
+      //fireEvent is a utility used to simulate user interactions
+
+    // Account Page is displayed by checking the text content
     const accountPageText = container.querySelector('div');
     expect(accountPageText && accountPageText.textContent).toContain('lrnr');
   });
@@ -32,7 +36,7 @@ describe('Navbar Component', () => {
       </MemoryRouter>
     );
 
-    // Click on the Quiz Generation link
+    // Quiz Generation link
     fireEvent.click(getByText(/Quiz Generation/i));
 
     // Check if the Quiz Generation Page is displayed by checking the text content
@@ -47,13 +51,13 @@ describe('Navbar Component', () => {
       </MemoryRouter>
     );
 
-    // Simulate opening the menu by clicking the toggle button
+    // Opening the menu by clicking the toggle button
     fireEvent.click(container.querySelector('#mobile-menu'));
 
     // Click on the Account link
     fireEvent.click(getByText(/Account/i));
 
-    // Check if the menu is closed (i.e., not active)
+    // Is the menu closed?
     const navLinks = container.querySelector('.nav-links');
     expect(navLinks.classList.contains('active')).toBe(false);
   });
